@@ -21,7 +21,7 @@ class Category extends Model
         $slug = Str::slug($value);
         $count = Category::where('slug', 'LIKE', $slug.'%')->count();
         $counter = $count ? $count + 1 : '';
-        $slug .='-'.$counter;
+        $slug .=$counter;
         return $slug.'-bike-in-bangladesh';
     }
 
