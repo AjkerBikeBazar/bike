@@ -5,6 +5,7 @@ Vue.use(Router);
 import dashboard from "./views/dashboard/index";
 import category from "./views/category/index";
 import brand from "./views/brand/index";
+import capacity from "./views/capacity/index";
 import bike from "./views/bike/index";
 import bikeAdd from "./views/bike/add";
 import bikeShow from "./views/bike/show";
@@ -29,6 +30,11 @@ const routes = [
         path: '/app/brand',
         component: brand,
         name: 'Brand'
+    },
+    {
+        path: '/app/capacity',
+        component: capacity,
+        name: 'Capacity'
     },
     {
         path: '/app/bike',

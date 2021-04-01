@@ -80,6 +80,8 @@ class BikeController extends Controller
         $bike->gear_indicator      = $request->gear_indicator      ;
         $bike->low_battery_indicator= $request->low_battery_indicator;
         $bike->low_fuel_indicator  = $request->low_fuel_indicator  ;
+        $bike->capacity_id         = $request->capacity_id  ;
+        $bike->launched_at         = $request->launched_at  ;
         $bike->save();
     }
 
@@ -91,7 +93,7 @@ class BikeController extends Controller
      */
     public function show($id)
     {
-        return Bike::with(['category', 'brand'])->findorfail($id);
+        return Bike::with(['category', 'capacity', 'brand'])->findorfail($id);
     }
 
     /**

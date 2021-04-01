@@ -19,6 +19,11 @@
                     <td>:</td>
                     <td>{{ brand_name }}</td>
                   </tr>
+                   <tr v-if="capacity !== null">
+                    <td>Capacity</td>
+                    <td>:</td>
+                    <td>{{ capacity }}</td>
+                  </tr>
                   <tr v-if="category !== null">
                     <td>Category</td>
                     <td>:</td>
@@ -34,10 +39,10 @@
                     <td>:</td>
                     <td>{{ bike.product_availability }}</td>
                   </tr>
-                  <tr>
-                    <td>Launched</td>
+                  <tr v-if="bike.launched_at !== null">
+                    <td>Launched At</td>
                     <td>:</td>
-                    <td>12 January 2021</td>
+                    <td>{{bike.launched_at}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -304,6 +309,7 @@ export default {
       bike: "",
       category: "",
       brand_name: "",
+      capacity: "",
     };
   },
 
@@ -313,6 +319,7 @@ export default {
         this.bike = res.data;
         this.brand_name = res.data.brand.name;
         this.category = res.data.category.name;
+        this.capacity = res.data.capacity.name;
         console.log(res.data);
       });
     },

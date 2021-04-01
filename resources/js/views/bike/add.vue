@@ -19,6 +19,14 @@
                 </select>
               </div>
               <div class="form-group">
+                <label for="brand_id">CC</label>
+                <select class="form-control" v-model="form.capacity_id">
+                  <option v-for="capacity in capacities" :value="capacity.id">
+                        {{ capacity.name }}
+                    </option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="category_id">Category</label>
                 <select class="form-control" v-model="form.category_id">
                   <option v-for="category in categories" :value="category.id">
@@ -33,6 +41,15 @@
                   class="form-control"
                   v-model="form.price"
                   id="price"
+                />
+              </div>
+              <div class="form-group">
+                <label for="launched_at">Launched At</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="form.launched_at"
+                  id="launched_at"
                 />
               </div>
               <div class="form-group">
@@ -511,9 +528,12 @@ export default {
         gear_indicator: "",
         low_battery_indicator: "",
         low_fuel_indicator: "",
+        launched_at: "",
+        capacity_id: "",
       },
       brands: [],
       categories : [],
+      capacities : [],
     };
   },
 
@@ -521,6 +541,11 @@ export default {
       async loadBrands(){
             axios.get('/api/brand').then(res=>{
                 this.brands = res.data
+            })
+      },
+      async loadCapacities(){
+            axios.get('/api/capacity').then(res=>{
+                this.capacities = res.data
             })
       },
       async loadCategories(){
@@ -584,11 +609,14 @@ export default {
         this.form.gear_indicator      = "";
         this.form.low_battery_indicator= "";
         this.form.low_fuel_indicator  = "";
+        this.form.launched_at = "";
+        this.form.capacity_id = "";
     },
   },
 
   mounted(){
       this.loadBrands();
+      this.loadCapacities();
       this.loadCategories();
   }
 };

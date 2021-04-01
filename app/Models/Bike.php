@@ -34,4 +34,9 @@ class Bike extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function capacity()
+    {
+        return $this->belongsTo(Capacity::class);
+    }
 }

@@ -20,8 +20,8 @@
                                 <td>{{category.id}}</td>
                                 <td>{{category.name}}</td>
                                 <td>{{category.slug}}</td>
-                                <td>201</td>
-                                <td>54df</td>
+                                <td>{{category.created_at | formatDate}}</td>
+                                <td>{{category.updated_at | formatDate}}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-warning dropdown-toggle" 

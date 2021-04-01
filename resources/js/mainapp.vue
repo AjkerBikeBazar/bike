@@ -11,6 +11,7 @@
             <b-nav-item :to="{name: 'Dashboard'}"><i class="fa fa-tachometer-alt fa-fw"></i>dashboard</b-nav-item>
             <b-nav-item :to="{name: 'Brand'}"><i class="fas fa-images fa-fw"></i>Brand</b-nav-item>
             <b-nav-item :to="{name: 'Category'}"><i class="fa fa-list fa-fw"></i>Category</b-nav-item>
+            <b-nav-item :to="{name: 'Capacity'}"><i class="fas fa-battery-full"></i>Capacity</b-nav-item>
             <b-nav-item :to="{name: 'Bike'}"><i class="fas fa-motorcycle fa-fw"></i>Bike</b-nav-item>
             <b-nav-item :to="{name: 'Showroom'}"><i class="fas fa-store-alt fa-fw"></i>Showroom</b-nav-item>
           </b-navbar-nav>
