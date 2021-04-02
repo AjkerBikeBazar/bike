@@ -87,6 +87,6 @@ class CapacityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Capacity::destroy($id);
     }
 }

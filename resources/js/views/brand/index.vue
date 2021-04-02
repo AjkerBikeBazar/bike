@@ -32,9 +32,8 @@
                                             Action
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Edit</a>
                                             <a class="dropdown-item" href="#">Delete</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <button class="dropdown-item" @click="deleteBrand(brand)">Delete</button>
                                         </div>
                                     </div>
                                 </td>
@@ -97,7 +96,37 @@ export default {
 
                 }
             })
+        },
+        deleteBrand(brand) {
+      this.$swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+          axios
+            .delete(`/api/brand/${brand.id}`)
+            .then((response) => {
+              this.loadBrands();
+              //this.categories.splice(category, 1);
+              if (response.status === 200) {
+                console.log("Brand Deleted");
+                this.$swal(
+                  "Deleted!",
+                  "Your file has been deleted.",
+                  "success"
+                );
+              }
+            });
         }
+      });
+    },
     },
 
     mounted(){

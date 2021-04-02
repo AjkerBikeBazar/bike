@@ -127,6 +127,6 @@ class BikeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Bike::destroy($id);
     }
 }

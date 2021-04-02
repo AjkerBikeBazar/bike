@@ -89,6 +89,6 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Brand::destroy($id);
     }
 }

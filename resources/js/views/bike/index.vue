@@ -37,7 +37,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Edit</a>
                                             <router-link class="dropdown-item" :to="{name:'BikeShow', params:{id: bike.id},}">Show</router-link>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <button class="dropdown-item" @click="deleteBikes(bike)">Delete</button>
                                         </div>
                                     </div>
                             </td>
@@ -61,7 +61,38 @@ export default {
             axios.get('/api/bike').then(res=>{
                 this.bikes = res.data;
             })
+        },
+
+         deleteBikes(bike) {
+      this.$swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+          axios
+            .delete(`/api/bike/${bike.id}`)
+            .then((response) => {
+              this.loadBikes();
+              //this.categories.splice(category, 1);
+              if (response.status === 200) {
+                console.log("Bike Deleted");
+                this.$swal(
+                  "Deleted!",
+                  "Your file has been deleted.",
+                  "success"
+                );
+              }
+            });
         }
+      });
+    },
     },
 
     mounted(){

@@ -31,8 +31,6 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
                                 </td>
