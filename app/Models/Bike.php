@@ -39,4 +39,9 @@ class Bike extends Model
     {
         return $this->belongsTo(Capacity::class);
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(BikeGallery::class);
+    }
 }

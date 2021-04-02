@@ -35,9 +35,10 @@
                                             Action
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Edit</a>
+                                            <router-link class="dropdown-item" :to="{name: 'BikeEdit', params:{id: bike.id}}">Edit</router-link>
                                             <router-link class="dropdown-item" :to="{name:'BikeShow', params:{id: bike.id},}">Show</router-link>
                                             <button class="dropdown-item" @click="deleteBikes(bike)">Delete</button>
+                                            <router-link class="dropdown-item" :to="{name:'BikeGallery', params:{id: bike.id},}">Photo Gallery</router-link>
                                         </div>
                                     </div>
                             </td>

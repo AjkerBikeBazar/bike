@@ -10,6 +10,7 @@ import bike from "./views/bike/index";
 import bikeAdd from "./views/bike/add";
 import bikeShow from "./views/bike/show";
 import bikeEdit from "./views/bike/edit";
+import bikeGallery from "./views/bike/gallery";
 import showroom from "./views/showroom/index";
 import showroomAdd from "./views/showroom/add";
 import showroomShow from "./views/showroom/show";
@@ -55,6 +56,11 @@ const routes = [
         path: '/app/bike/edit/:id',
         component: bikeEdit,
         name: 'BikeEdit'
+    },
+    {
+        path: '/app/bike/galleries/:id',
+        component: bikeGallery,
+        name: 'BikeGallery'
     },
     {
         path: '/app/showroom',

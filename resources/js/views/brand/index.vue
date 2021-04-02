@@ -32,7 +32,6 @@
                                             Action
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Delete</a>
                                             <button class="dropdown-item" @click="deleteBrand(brand)">Delete</button>
                                         </div>
                                     </div>

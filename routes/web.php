@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BikeController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CapacityController;
+use App\Http\Controllers\Admin\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,11 @@ Route::group(['prefix' => 'api'], function(){
     Route::resource('/capacity', CapacityController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/bike', BikeController::class);
+    Route::get('/gallery/{id}', [GalleryController::class, 'index']);
+    Route::post('/gallery/{id}', [GalleryController::class, 'store']);
+    Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
+    Route::post('/gallery/main/{id}/{gallery}', [GalleryController::class, 'isMain']);
+    Route::post('/gallery/remove/{id}', [GalleryController::class, 'remove']);
 });
 
 //Route::post('brand/store', [BrandController::class, 'store']);
