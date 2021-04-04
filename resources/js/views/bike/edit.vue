@@ -80,6 +80,15 @@
                 />
               </div>
               <div class="form-group">
+                <label for="top_speed"><h5>Top Speed</h5></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="top_speed"
+                  v-model="form.top_speed"
+                />
+              </div>
+              <div class="form-group">
                 <label for="max_power"><h5>Max Power</h5></label>
                 <input
                   type="text"
@@ -158,6 +167,15 @@
                   class="form-control"
                   id="starting_method"
                   v-model="form.starting_method"
+                />
+              </div>
+              <div class="form-group">
+                <label for="mileage"><h5>Mileage</h5></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mileage"
+                  v-model="form.mileage"
                 />
               </div>
             </div>
@@ -491,6 +509,7 @@ export default {
         price: "",
         product_availability: "",
         displacement: "",
+        top_speed: "",
         max_power: "",
         max_torque: "",
         bore: "",
@@ -500,6 +519,7 @@ export default {
         cooling_system: "",
         fuel_supply: "",
         starting_method: "",
+        mileage: "",
         fuel_tank_capacity: "",
         fuel_reserve: "",
         ground_clearance: "",
@@ -550,6 +570,7 @@ export default {
         this.form.price               = res.data.price;
         this.form.product_availability= res.data.product_availability;
         this.form.displacement        = res.data.displacement;
+        this.form.top_speed           = res.data.top_speed;
         this.form.max_power           = res.data.max_power;
         this.form.max_torque          = res.data.max_torque;
         this.form.bore                = res.data.bore;
@@ -557,6 +578,7 @@ export default {
         this.form.gear                = res.data.gear;
         this.form.clutch              = res.data.clutch;
         this.form.cooling_system      = res.data.cooling_system;
+        this.form.mileage             = res.data.mileage;
         this.form.fuel_supply         = res.data.fuel_supply;
         this.form.starting_method     = res.data.starting_method;
         this.form.fuel_tank_capacity  = res.data.fuel_tank_capacity;
@@ -629,6 +651,7 @@ export default {
         this.form.product_availability= "";
         this.form.displacement        = "";
         this.form.max_power           = "";
+        this.form.top_speed           = "";
         this.form.max_torque          = "";
         this.form.bore                = "";
         this.form.stroke              = "";
@@ -637,6 +660,7 @@ export default {
         this.form.cooling_system      = "";
         this.form.fuel_supply         = "";
         this.form.starting_method     = "";
+        this.form.mileage             = "";
         this.form.fuel_tank_capacity  = "";
         this.form.fuel_reserve        = "";
         this.form.ground_clearance    = "";

@@ -1,0 +1,117 @@
+    main{
+        min-height: 70vh;
+    }
+
+    .footer-link{
+        text-decoration: none;
+        color: #ffffff;
+    }
+    .footer-link:hover{
+        text-decoration: none;
+        color: #f5bbbb;
+    }
+    .footer{
+        background-color: #343a40;
+        color: #ffffff;
+    }
+
+    h1{
+      font-size: 2rem;
+    }
+
+
+    .bike-engine{
+        background-color: blanchedalmond;
+        color: black;
+        padding: 2px;
+        font-size: 1rem;
+    }
+    .bike-speed{
+        background-color: whitesmoke;
+        color: black;
+        padding: 2px;
+        font-size: 1rem;
+    }
+    .bike-mileage{
+        background-color: blanchedalmond;
+        color: black;
+        padding: 5px;
+        font-size: 1rem;
+    }
+    .bike-price{
+        color: black;
+        background-color: white;
+        padding: 2px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
+    .avail{
+        color: #ffffff;
+        background-color: #343a40;
+        padding-top: 4px;
+        padding-bottom: 8px;
+        border-radius: 25px;
+        font-size: 1.50rem;
+    }
+    
+    .gallery-wrap .img-big-wrap img {
+      height: 400px;
+      width: auto;
+      display: inline-block;
+      cursor: zoom-in;
+  }
+
+  .gallery-wrap .img-small-wrap {
+    text-align: center;
+}
+.gallery-wrap .img-small-wrap .item-gallery {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ddd;
+  margin: 7px 2px;
+  display: inline-block;
+}
+
+    /*---------------------------------------
+  Contact section              
+-----------------------------------------*/
+
+.contact-info .fa {
+    padding-right: 5px;
+  }
+  
+  #contact .form-control {
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-transition: all ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+  }
+  
+  #contact .form-control:focus {
+    border-bottom-color: #999999;
+  }
+  
+  #contact input {
+    height: 55px;
+  }
+  
+  #contact button#submit {
+    background: #2b2b2b;
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    height: 50px;
+    margin-top: 24px;
+  }
+  
+  #contact button#submit:hover {
+    background: #7682cc;
+    color: #ffffff;
+  }
+  
+  

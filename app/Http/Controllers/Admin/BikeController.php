@@ -44,6 +44,7 @@ class BikeController extends Controller
         $bike->product_availability= $request->product_availability;
         $bike->displacement        = $request->displacement        ;
         $bike->max_power           = $request->max_power           ;
+        $bike->top_speed           = $request->top_speed           ;
         $bike->max_torque          = $request->max_torque          ;
         $bike->bore                = $request->bore                ;
         $bike->stroke              = $request->stroke              ;
@@ -52,6 +53,7 @@ class BikeController extends Controller
         $bike->cooling_system      = $request->cooling_system      ;
         $bike->fuel_supply         = $request->fuel_supply         ;
         $bike->starting_method     = $request->starting_method     ;
+        $bike->mileage             = $request->mileage             ;
         $bike->fuel_tank_capacity  = $request->fuel_tank_capacity  ;
         $bike->fuel_reserve        = $request->fuel_reserve        ;
         $bike->ground_clearance    = $request->ground_clearance    ;
@@ -124,6 +126,7 @@ class BikeController extends Controller
         $bike->product_availability= $request->product_availability;
         $bike->displacement        = $request->displacement        ;
         $bike->max_power           = $request->max_power           ;
+        $bike->top_speed           = $request->top_speed           ;
         $bike->max_torque          = $request->max_torque          ;
         $bike->bore                = $request->bore                ;
         $bike->stroke              = $request->stroke              ;
@@ -132,6 +135,7 @@ class BikeController extends Controller
         $bike->cooling_system      = $request->cooling_system      ;
         $bike->fuel_supply         = $request->fuel_supply         ;
         $bike->starting_method     = $request->starting_method     ;
+        $bike->mileage             = $request->mileage             ;
         $bike->fuel_tank_capacity  = $request->fuel_tank_capacity  ;
         $bike->fuel_reserve        = $request->fuel_reserve        ;
         $bike->ground_clearance    = $request->ground_clearance    ;

@@ -62,6 +62,11 @@
                     <td>:</td>
                     <td>{{ bike.displacement }}</td>
                   </tr>
+                  <tr v-if="bike.top_speed !== null">
+                    <td>Top Speed</td>
+                    <td>:</td>
+                    <td>{{ bike.top_speed }}</td>
+                  </tr>
                   <tr v-if="bike.max_power !== null">
                     <td>Max Power</td>
                     <td>:</td>
@@ -106,6 +111,11 @@
                     <td>Starting Method</td>
                     <td>:</td>
                     <td>{{ bike.starting_method }}</td>
+                  </tr>
+                  <tr v-if="bike.mileage !== null">
+                    <td>Mileage</td>
+                    <td>:</td>
+                    <td>{{ bike.mileage }}</td>
                   </tr>
                 </tbody>
                 

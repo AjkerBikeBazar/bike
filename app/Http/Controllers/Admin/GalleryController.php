@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bike;
 use App\Models\BikeGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -48,7 +49,7 @@ class GalleryController extends Controller
             if (!Storage::disk('public')->exists('gallery')) {
                 Storage::disk('public')->makeDirectory('gallery');
             }
-            $postImage = Image::make($image)->resize(420, 360)->stream();
+            $postImage = Image::make($image)->resize(350, 300)->stream();
             Storage::disk('public')->put('gallery/' . $imageName, $postImage);
         } else {
             $imageName = "";
@@ -118,7 +119,13 @@ class GalleryController extends Controller
             return response()->json('error', 201);
         }
 
-        BikeGallery::findorfail($gallery)->update(['is_main'=> 1]);
+        $photo =BikeGallery::findorfail($gallery);
+        $photo->is_main = 1;
+        $photo->update();
+
+        $bike = Bike::findorfail($id);
+        $bike->thumbnail = $photo->image;
+        $bike->update();
 
         // $isMain = BikeGallery::findorfail($gallery);
         // $isMain->is_main = 1;
@@ -129,6 +136,12 @@ class GalleryController extends Controller
 
     public function remove($id)
     {
-        BikeGallery::findorfail($id)->update(['is_main'=> 0]);
+        $photo =BikeGallery::findorfail($id);
+        $photo->is_main = 0;
+        $photo->update();
+
+        $bike = Bike::findorfail($photo->bike_id);
+        $bike->thumbnail = null;
+        $bike->update();
     }
 }

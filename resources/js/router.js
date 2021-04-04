@@ -48,7 +48,7 @@ const routes = [
         name: 'BikeAdd'
     },
     {
-        path: '/appn/bike/show/:id',
+        path: '/app/bike/show/:id',
         component: bikeShow,
         name: 'BikeShow'
     },
