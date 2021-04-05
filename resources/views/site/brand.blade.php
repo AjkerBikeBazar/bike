@@ -12,13 +12,10 @@ HomePage
 @section('content')
 <h1 class="avail text-center">{{$brand->name}} Bike in Bangladesh</h1>
 <div class="card mb-4 border-0">
-    
+
     <div class="card-body" style="background-color: none;">
-
-    Below you will get updated official Suzuki Bike Price In BD2021 list & all Suzuki motorcycle in Bangladesh showroom address with latest Suzuki motorbikes specifications, images.
-
-Suzuki Bangladesh is one of the most popular motorcycle companies in our country (Source). Suzuki Gixxer series is the most popular Suzuki bikes in BD. Rancon Motorbikes Ltd – Selling Suzuki bikes in BD from 2014.
-    </div>
+        {!! $brand->description !!}
+   </div>
 </div>
 <h2 class="avail text-center mb-4">Available {{$brand->name}} Bike in Bangladesh {{date('Y')}}</h2>
 <div class="row">
@@ -29,7 +26,7 @@ Suzuki Bangladesh is one of the most popular motorcycle companies in our country
             <div class="card-body text-center">
                 <h5 class="card-title">{{$bike->name}}</h5>
                 <div class="bike-engine">
-                    engine : {{$bike->capacity->name}}
+                    Engine : {{$bike->capacity->name}}
                 </div>
                 <div class="bike-speed">
                     Top Speed : {{$bike->top_speed}} Kmph
@@ -38,7 +35,7 @@ Suzuki Bangladesh is one of the most popular motorcycle companies in our country
                     Mileage : {{$bike->mileage}} Kmph
                 </div>
                 <div class="bike-price">
-                    Price : {{number_format($bike->price), 2}} BDT
+                    Price : {{number_format($bike->price, 0)}} BDT
                 </div>
                 <a href="{{route('site.bike', $bike->slug)}}" class="btn btn-primary"><i class="fas fa-motorcycle fa-fw"></i> More Details</a>
             </div>

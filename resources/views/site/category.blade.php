@@ -29,7 +29,7 @@ HomePage
             <div class="card-body text-center">
                 <h5 class="card-title">{{$bike->name}}</h5>
                 <div class="bike-engine">
-                    engine : {{$bike->capacity->name}}
+                    Engine : {{$bike->capacity->name}}
                 </div>
                 <div class="bike-speed">
                     Top Speed : {{$bike->top_speed}} Kmph

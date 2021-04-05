@@ -1,5 +1,6 @@
 import Router from "vue-router";
 import Vue from 'vue'
+
 Vue.use(Router);
 
 import dashboard from "./views/dashboard/index";
@@ -11,6 +12,7 @@ import bikeAdd from "./views/bike/add";
 import bikeShow from "./views/bike/show";
 import bikeEdit from "./views/bike/edit";
 import bikeGallery from "./views/bike/gallery";
+import bikeContent from "./views/bike/content";
 import showroom from "./views/showroom/index";
 import showroomAdd from "./views/showroom/add";
 import showroomShow from "./views/showroom/show";
@@ -63,6 +65,11 @@ const routes = [
         name: 'BikeGallery'
     },
     {
+        path: '/app/bike/content/:id',
+        component: bikeContent,
+        name: 'BikeContent'
+    },
+    {
         path: '/app/showroom',
         component: showroom,
         name: 'Showroom'
@@ -83,7 +90,6 @@ const routes = [
         name: 'ShowroomEdit'
     },
 ]
-
 
 
 export default new Router({

@@ -13,7 +13,8 @@ class SiteController extends Controller
     public function index()
     {
         $recentbikes = Bike::take(8)->orderBy('id')->get();
-        return view('site.index', compact('recentbikes'));
+        $brands = Brand::all();
+        return view('site.index', compact('recentbikes', 'brands'));
     }
 
     public function brands()

@@ -77,31 +77,31 @@
           <div class="form-group">
             <label>Brand Logo</label>
             <input
-              type="text"
-              v-model="form.name"
+              type="file"
+              id="brandLogo"
+              @change="getThumbnail"
               class="form-control"
               required
             />
           </div>
           <div class="form-group">
             <label>Brand Description</label>
-            <textarea class="form-control" rows="6"></textarea>
-            
+            <textarea class="form-control" rows="6" v-model="form.description"></textarea>
           </div>
-           <div class="form-group">
+          <div class="form-group">
             <label>Meta Keywords</label>
             <input
               type="text"
-              v-model="form.name"
+              v-model="form.meta_keyword"
               class="form-control"
               required
             />
           </div>
-           <div class="form-group">
+          <div class="form-group">
             <label>Meta Description</label>
             <input
               type="text"
-              v-model="form.name"
+              v-model="form.meta_description"
               class="form-control"
               required
             />
@@ -122,6 +122,10 @@ export default {
       brands: [],
       form: {
         name: "",
+        logo: "",
+        description: "",
+        meta_keyword: "",
+        meta_description: "",
       },
     };
   },
@@ -132,12 +136,29 @@ export default {
         this.brands = res.data;
       });
     },
-
+    getThumbnail(e) {
+      this.form.logo = e.target.files[0];
+      console.log(this.form.logo)
+    },
     addBrand() {
-      axios.post("/api/brand", this.form).then((res) => {
+      const formData = new FormData();
+      formData.append("name", this.form.name);
+      formData.append("description", this.form.description);
+      formData.append("meta_keyword", this.form.meta_keyword);
+      formData.append("meta_description", this.form.meta_description);
+      formData.append(
+        "logo",
+        this.form.logo,
+        this.form.logo.name
+      );
+      axios.post("/api/brand", formData).then((res) => {
         //console.log(res.status);
         if (res.status === 200) {
           this.form.name = "";
+          this.form.description = "",
+          this.form.meta_keyword = "",
+          this.form.meta_description = "",
+          this.form.logo = "",
           this.$bvModal.hide("add-brand");
           this.loadBrands();
           this.$swal("Created!", "Your file has been created.", "success");

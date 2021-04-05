@@ -223,6 +223,15 @@
                   v-model="form.height"
                 />
               </div>
+                <div class="form-group">
+                    <label for="weight"><h5>Weight</h5></label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="weight"
+                        v-model="form.weight"
+                    />
+                </div>
               <div class="form-group">
                 <label for="length"><h5>Length</h5></label>
                 <input
@@ -581,7 +590,7 @@ export default {
                         "success"
                         );
 
-              this,this.resetFieldsMethod();
+              this.resetFieldsMethod();
           })
       },
 

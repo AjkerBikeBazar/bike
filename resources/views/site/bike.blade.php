@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('page-title')
-HomePage
+{{$bike->name}} Bike Price in Bangladesh
 @endpush
 
 @push('css')
@@ -20,10 +20,9 @@ HomePage
 </div>
 <!-- slider-product.// -->
 <div class="img-small-wrap" id="gallery">
-  <div class="item-gallery"> <img src="{{asset('storage/gallery/'.$bike->thumbnail)}}" width="60px"></div>
-  <div class="item-gallery"> <img src="{{asset('storage/gallery/'.$bike->thumbnail)}}" width="60px"></div>
-  <div class="item-gallery"> <img src="{{asset('storage/gallery/'.$bike->thumbnail)}}" width="60px"></div>
-  <div class="item-gallery"> <img src="{{asset('storage/gallery/'.$bike->thumbnail)}}" width="60px"></div>
+    @foreach($bike->galleries as $gallery)
+  <div class="item-gallery"> <img src="{{asset('storage/gallery/'.$gallery->image)}}" width="60px"></div>
+    @endforeach
 </div>
 <!-- slider-nav.// -->
 </article>
@@ -81,11 +80,8 @@ HomePage
   <div class="col-md-12">
     <h1 class="avail text-center">{{ $bike->name }} Bike Description</h1>
     <div class="card mb-4 border-0">
-      <div class="card-body" style="background-color: none;">
-
-        Below you will get updated official Suzuki Bike Price In BD2021 list & all Suzuki motorcycle in Bangladesh showroom address with latest Suzuki motorbikes specifications, images.
-
-        Suzuki Bangladesh is one of the most popular motorcycle companies in our country (Source). Suzuki Gixxer series is the most popular Suzuki bikes in BD. Rancon Motorbikes Ltd – Selling Suzuki bikes in BD from 2014.
+      <div class="card-body">
+        {!! $bike->content !!}
       </div>
     </div>
   </div>
@@ -121,7 +117,7 @@ HomePage
               <tr>
                 <td>Price</td>
                 <td>:</td>
-                <td>{{ $bike->price }}</td>
+                <td>{{ number_format($bike->price, 0) }} BDT</td>
               </tr>
               <tr>
                 <td>Availability</td>
@@ -239,6 +235,11 @@ HomePage
                 <td>Height</td>
                 <td>:</td>
                 <td>{{$bike->height}}</td>
+              </tr>
+              <tr v-if="bike.height !== null">
+                  <td>Weight</td>
+                  <td>:</td>
+                  <td>{{$bike->weight}}</td>
               </tr>
               <tr v-if="bike.length !== null">
                 <td>Length</td>
@@ -482,7 +483,7 @@ HomePage
     </div>
   </div>
 </div>
-<h2 class="avail text-center mb-4 mt-4">Related bike</h2>
+<h2 class="avail text-center mb-4 mt-4">Related Bike</h2>
 <div class="row mb-4">
   @foreach($bikes as $bike)
   <div class="col-md-3 mb-4">
@@ -491,7 +492,7 @@ HomePage
       <div class="card-body text-center">
         <h5 class="card-title">{{$bike->name}}</h5>
         <div class="bike-engine">
-          engine : {{$bike->capacity->name}}
+          Engine : {{$bike->capacity->name}}
         </div>
         <div class="bike-speed">
           Top Speed : {{$bike->top_speed}} Kmph

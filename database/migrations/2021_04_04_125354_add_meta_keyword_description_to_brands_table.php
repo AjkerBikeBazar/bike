@@ -14,7 +14,7 @@ class AddMetaKeywordDescriptionToBrandsTable extends Migration
     public function up()
     {
         Schema::table('brands', function (Blueprint $table) {
-            $table->string('meta_keyword')->nullable();
+            $table->text('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
         });
     }

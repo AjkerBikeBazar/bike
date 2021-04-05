@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'api'], function(){
+Route::group(['prefix' => 'api', 'middleware'=> ['auth', 'active']], function(){
     Route::resource('/brand', BrandController::class);
     Route::resource('/capacity', CapacityController::class);
     Route::resource('/category', CategoryController::class);
@@ -29,6 +29,8 @@ Route::group(['prefix' => 'api'], function(){
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy']);
     Route::post('/gallery/main/{id}/{gallery}', [GalleryController::class, 'isMain']);
     Route::post('/gallery/remove/{id}', [GalleryController::class, 'remove']);
+    Route::post('/bike/content/{id}', [BikeController::class, 'contentAdd']);
+    Route::get('/bike/content/get/{id}', [BikeController::class, 'contentGet']);
 });
 
 //Route::post('brand/store', [BrandController::class, 'store']);
@@ -41,9 +43,9 @@ Auth::routes();
 
 Route::get('/app/{any}', function () {
     return view('layouts.admin');
-})->where('any', '^(?!api).*$');
+})->where('any', '^(?!api).*$')->name('dashboard')->middleware(['auth','active']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth','active']);
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/brand/{slug}', [SiteController::class, 'brand'])->name('site.brand');
@@ -75,4 +77,18 @@ View::composer('layouts.partial.header',function ($view) {
     $capacitise = App\Models\Capacity::all();
     //'categories', Category::all()
     $view->with('capacitise', $capacitise);
+});
+
+// Route::get('/install', function() {
+//     Artisan::call('migrate');
+//     Artisan::call('db:seed');
+//     Artisan::call('storage:link');
+//     //Artisan::call('route:cache');
+//     //Artisan::call('view:clear');
+
+//     return "Installed!";
+// });
+
+Route::get('/migrate', function (){
+    Artisan::call('migrate');
 });

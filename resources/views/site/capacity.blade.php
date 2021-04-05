@@ -12,7 +12,7 @@ HomePage
 @section('content')
 <h1 class="avail text-center">{{$capacity->name}} Bike in Bangladesh</h1>
 <div class="card mb-4 border-0">
-    
+
     <div class="card-body" style="background-color: none;">
 
     Below you will get updated official Suzuki Bike Price In BD2021 list & all Suzuki motorcycle in Bangladesh showroom address with latest Suzuki motorbikes specifications, images.
@@ -29,7 +29,7 @@ Suzuki Bangladesh is one of the most popular motorcycle companies in our country
             <div class="card-body text-center">
                 <h5 class="card-title">{{$bike->name}}</h5>
                 <div class="bike-engine">
-                    engine : {{$bike->capacity->name}}
+                    Engine : {{$bike->capacity->name}}
                 </div>
                 <div class="bike-speed">
                     Top Speed : {{$bike->top_speed}} Kmph

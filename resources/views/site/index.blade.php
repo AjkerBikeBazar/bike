@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('page-title')
-    HomePage
+HomePage
 @endpush
 
 @push('css')
@@ -11,11 +11,11 @@
 
 @section('content')
 <div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
 <h1 class="text-center mb-4" style="border: 4px solid whitesmoke; padding-bottom: 5px">Recent Bikes in Bangladesh</h1>
@@ -27,7 +27,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title">{{$bike->name}}</h5>
                 <div class="bike-engine">
-                    engine : {{$bike->capacity->name}}
+                    Engine : {{$bike->capacity->name}}
                 </div>
                 <div class="bike-speed">
                     Top Speed : {{$bike->top_speed}} Kmph
@@ -36,7 +36,7 @@
                     Mileage : {{$bike->mileage}} Kmph
                 </div>
                 <div class="bike-price">
-                    Price : {{number_format($bike->price), 2}} BDT
+                    Price : {{number_format($bike->price, 0)}} BDT
                 </div>
                 <a href="{{route('site.bike', $bike->slug)}}" class="btn btn-primary"><i class="fas fa-motorcycle fa-fw"></i> More Details</a>
             </div>
@@ -44,6 +44,22 @@
     </div>
     @endforeach
 </div>
+
+<h1 class="text-center mb-4" style="border: 4px solid whitesmoke; padding-bottom: 5px">Bike Brand in Bangladesh</h1>
+<div class="row mt-4 mb-4">
+    @foreach($brands as $brand)
+    <div class="col-md-4">
+        <div class="card">
+            <a href="{{route('site.brand', $brand->slug)}}"
+            <div class="card-body text-center">
+                <img src="{{asset('storage/gallery/'.$brand->logo)}}" class="card-img-top" alt="{{$brand->name}}">
+                <h2 class="card-title" style="font-size: 1.50rem;">{{$brand->name}}</h2>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
 @endsection
 
 

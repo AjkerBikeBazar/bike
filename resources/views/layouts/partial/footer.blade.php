@@ -1,8 +1,8 @@
 <footer class="footer">
     <div class="container">
     <div class="row">
-        <div class="col-md-4">
-        <img src="{{asset('assets/images/logo.png')}}" width="240px" height="180px"/>
+        <div class="col-md-4 mt-4">
+        <img src="{{asset('assets/images/white.png')}}" width="240px" height="180px"/>
         <p>
           Your Number One trusted source of bike information website.
         </p>
